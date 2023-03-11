@@ -2,21 +2,20 @@ import argparse
 import urllib.request
 import functions
 
+
 def main(url):
     # Download data
     incident_data = functions.fetchincidents(url)
     incidents = functions.extractincidents(incident_data)
+    incidents_db = functions.createdb()
     # Extract data
 #    incidents = project0.extractincidents(incident_data)
 	
     # Create new database
  #   db = project0.createdb()
-	
-    # Insert data
-  
-#  project0.populatedb(db, incidents	
+    functions.populatedb(incidents_db, incidents)
     # Print incident counts
- #   project0.status(db)
+    functions.status()
 
 
 if __name__ == '__main__':
